@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Samskrita Bhasha and NLP | English/Hindi to Sanskrit Translator</title>
+  <meta name="description" content="IKS project: English and Hindi to Sanskrit translator and an introduction to Sanskrit Natural Language Processing, Paninian grammar, Sandhi and Samasa.">
+  <meta name="theme-color" content="#E8710A">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Noto+Sans+Devanagari:wght@400;600&family=Noto+Serif+Devanagari:wght@500;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#translator">Skip to translator</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Samskrita Bhasha and NLP home">
+        <span class="brand-mark" aria-hidden="true">ॐ</span>
+        <span class="brand-text">Samskrita Bhasha <small>&amp; NLP</small></span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainNav">☰</button>
+      <nav id="mainNav" class="main-nav" aria-label="Main navigation">
+        <a href="#translator">Translator</a>
+        <a href="#about">About Project</a>
+        <a href="#grammar">Grammar Map</a>
+        <a href="#limits">Limitations</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="eyebrow">Indian Knowledge System (IKS) Project</p>
+        <h1 class="devanagari-title" lang="sa">संस्कृतभाषा च प्राकृतिकभाषासंसाधनम्</h1>
+        <h2>Samskrita Bhasha and Natural Language Processing</h2>
+        <p class="hero-sub">Translate English or Hindi sentences into Sanskrit (Devanagari script) and explore how Paninian grammar meets modern computing.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#translator">Try the Translator</a>
+          <a class="btn btn-ghost" href="#about">Read About the Project</a>
+        </div>
+      </div>
+      <div class="ornament" aria-hidden="true"><span></span><i>❖</i><span></span></div>
+    </section>
+
+    <!-- TRANSLATOR -->
+    <section id="translator" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>English / Hindi → Sanskrit Translator</h2>
+          <p>Choose the language you will type in, enter a sentence, and press <strong>Translate to Sanskrit</strong>.</p>
+        </div>
+
+        <div class="card translator-card">
+
+          <div class="controls-row">
+            <div class="field">
+              <label for="inputLang">Input language</label>
+              <select id="inputLang">
+                <option value="en" selected>English</option>
+                <option value="hi">Hindi (हिन्दी)</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="modeSelect">Translation mode</label>
+              <select id="modeSelect">
+                <option value="api" selected>Online machine translation (MyMemory)</option>
+                <option value="dict">Basic dictionary demo (works offline)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mode-note" id="modeNote" role="note"></div>
+
+          <div class="field">
+            <label for="inputText">Your sentence</label>
+            <textarea id="inputText" rows="4" maxlength="1000" placeholder="Type a sentence here, for example: Knowledge is power." spellcheck="false"></textarea>
+            <div class="field-foot">
+              <span class="hint">Tip: press Ctrl + Enter to translate.</span>
+              <span class="counter" id="charCount">0 / 1000</span>
+            </div>
+          </div>
+
+          <div class="button-row">
+            <button class="btn btn-primary" id="translateBtn" type="button">Translate to Sanskrit</button>
+            <button class="btn btn-ghost" id="clearBtn" type="button">Clear</button>
+          </div>
+
+          <div class="examples">
+            <p class="examples-title">Example sentences <span id="exLangLabel">(English)</span>:</p>
+            <div class="chips" id="exampleChips"></div>
+          </div>
+
+          <div class="status" id="status" role="status" aria-live="polite" hidden></div>
+
+          <div class="output-wrap">
+            <div class="output-head">
+              <h3>Sanskrit translation <span lang="sa">(संस्कृतम्)</span></h3>
+              <button class="btn btn-small" id="copyBtn" type="button" disabled>Copy Translation</button>
+            </div>
+            <div class="output" id="output" lang="sa" aria-live="polite">
+              <span class="placeholder">Your Sanskrit translation will appear here in Devanagari script.</span>
+            </div>
+            <p class="output-meta" id="outputMeta"></p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>About the Project</h2>
+          <p>Sanskrit (Samskrita Bhasha) is one of the most carefully described languages in history. Its grammar was codified more than two thousand years ago, which makes it a fascinating subject for computer science.</p>
+        </div>
+
+        <div class="grid grid-2">
+          <article class="card info-card">
+            <h3>Sanskrit and NLP</h3>
+            <p>Natural Language Processing (NLP) teaches computers to read, interpret and generate human language. Sanskrit is both easy and hard for NLP: its rules are precise, but free word order, rich inflection, Sandhi and compounds make automatic analysis difficult. Research has moved from hand-written rules, to database-driven analyzers, to neural networks guided by traditional grammar.</p>
+          </article>
+          <article class="card info-card">
+            <h3>Paninian Grammar</h3>
+            <p>Panini's <em>Ashtadhyayi</em> (around the 4th century BCE) describes how Sanskrit words are built from roots using roughly 4,000 compact rules. Its rule-based, almost algorithmic style is why it is often compared with formal grammars and programming-language specifications. Its <em>Karaka</em> theory links a noun's case ending to its role in the action (agent, object, instrument and so on), which is the basis of dependency-style parsing.</p>
+          </article>
+          <article class="card info-card">
+            <h3>Sandhi (सन्धि)</h3>
+            <p>Sandhi is the joining of sounds at word boundaries. Words are written as they are spoken, so boundaries disappear. For example:</p>
+            <p class="example-line" lang="sa">विद्या + आलयः = विद्यालयः</p>
+            <p class="example-line" lang="sa">सूर्य + उदयः = सूर्योदयः</p>
+            <p>The reverse task, <em>Sandhi-viccheda</em> (splitting), is the first step for almost every Sanskrit NLP tool, because nothing else works until the words are separated.</p>
+          </article>
+          <article class="card info-card">
+            <h3>Samasa (समास)</h3>
+            <p>Samasa is compounding: two or more words merge into one, with the relationship between them left unstated. Sanskrit compounds can be very long. For example:</p>
+            <p class="example-line" lang="sa">राज्ञः पुरुषः = राजपुरुषः</p>
+            <p class="example-line" lang="sa">नीलं च तत् कमलम् = नीलकमलम्</p>
+            <p>A program must work out the hidden relationship, which is why compound analysis is a major research topic.</p>
+          </article>
+        </div>
+
+        <div class="card info-card wide">
+          <h3>Literature reviewed in this project</h3>
+          <ul class="lit-list">
+            <li><strong>Bharati, Chaitanya &amp; Sangal (1995)</strong> &ndash; <em>Natural Language Processing: A Paninian Perspective.</em> Karaka-based parsing for free word order.</li>
+            <li><strong>Huet (2003, 2009)</strong> &ndash; Sanskrit Heritage Engine. Finite-state morphological analysis and Sandhi splitting.</li>
+            <li><strong>Jha et al. (2006, 2008)</strong> &ndash; JNU inflectional morphology analyzer for Subanta and Tinanta forms.</li>
+            <li><strong>Sandhan (2023)</strong> &ndash; Linguistically-informed neural architectures for Sanskrit (SanskritShala).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRAMMAR MAP -->
+    <section id="grammar" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Grammar Meets Computer Science</h2>
+          <p>Traditional IKS grammatical categories and their modern computing equivalents.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="map-table">
+            <thead>
+              <tr><th>Traditional IKS concept</th><th>Function in Sanskrit</th><th>Computer science equivalent</th></tr>
+            </thead>
+            <tbody>
+              <tr><td data-label="Concept"><strong>Subanta</strong> (nominal forms)</td><td data-label="Function">Case endings on nouns by number and gender</td><td data-label="CS equivalent">Typed property sets</td></tr>
+              <tr><td data-label="Concept"><strong>Tinanta</strong> (verbal forms)</td><td data-label="Function">Verb forms built from a root by tense, mood and person</td><td data-label="CS equivalent">Finite-state automaton transitions</td></tr>
+              <tr><td data-label="Concept"><strong>Sandhi</strong> / Sandhi-viccheda</td><td data-label="Function">Sound fusion and boundary recovery</td><td data-label="CS equivalent">Tokenization, tries, finite-state transducers</td></tr>
+              <tr><td data-label="Concept"><strong>Samasa</strong> (compounds)</td><td data-label="Function">Several words merged with an implied relation</td><td data-label="CS equivalent">Nested tree structures</td></tr>
+              <tr><td data-label="Concept"><strong>Karaka</strong> (case-role theory)</td><td data-label="Function">Links a case marker to a semantic role</td><td data-label="CS equivalent">Dependency parsing, semantic role labelling</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIMITATIONS -->
+    <section id="limits" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>How This Translator Works &amp; Its Limitations</h2>
+        </div>
+        <div class="grid grid-2">
+          <article class="card info-card">
+            <h3>Online machine translation mode</h3>
+            <p>Your sentence is sent directly from your browser to the public <strong>MyMemory</strong> translation service (api.mymemory.translated.net), which supports Sanskrit (code <code>sa</code>) and needs no secret key. This site has no server of its own.</p>
+            <ul>
+              <li>Output is machine-generated and can contain errors in grammar, Sandhi and word choice. Treat it as a draft and check it with a Sanskrit teacher.</li>
+              <li>Short, common sentences work best. Idioms and long sentences may be poor.</li>
+              <li>Free usage is limited to about 5,000 characters per day per internet connection, and long text is sent in small pieces.</li>
+              <li>An internet connection is required, and your text is sent to the MyMemory service. Do not enter private information.</li>
+            </ul>
+          </article>
+          <article class="card info-card">
+            <h3>Basic dictionary demo mode</h3>
+            <p>This mode runs entirely in your browser with a small built-in dictionary of common words and a few ready-made sentences. It is <strong>not a real translator</strong>.</p>
+            <ul>
+              <li>Unknown words appear in [square brackets].</li>
+              <li>Words are replaced one by one, so Sanskrit case endings, verb agreement, Sandhi and word order are not handled.</li>
+              <li>It exists to demonstrate the idea of dictionary lookup, which is where early Sanskrit NLP tools began.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-sanskrit" lang="sa">सा विद्या या विमुक्तये</p>
+      <p><strong>Indian Knowledge System (IKS) Project</strong> &ndash; Samskrita Bhasha and Natural Language Processing</p>
+      <p>Vishal Rathod &middot; Roll No. 63 &middot; T.Y. B.Sc. (Information Technology)</p>
+      <p class="footer-small">Translation service: MyMemory (translated.net). Built with plain HTML, CSS and JavaScript.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
